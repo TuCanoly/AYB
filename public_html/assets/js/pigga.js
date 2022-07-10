@@ -1,0 +1,46 @@
+/*!
+=========================================================
+* Pigga Landing page
+=========================================================
+
+* Copyright: 2019 DevCRUD (https://devcrud.com)
+* Licensed: (https://devcrud.com/licenses)
+* Coded by www.devcrud.com
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+*/
+
+// smooth scroll
+$(document).ready(function () {
+  $(".navbar .nav-link").on("click", function (event) {
+    if (this.hash !== "") {
+      event.preventDefault();
+
+      var hash = this.hash;
+
+      $("html, body").animate(
+        {
+          scrollTop: $(hash).offset().top,
+        },
+        700,
+        function () {
+          window.location.hash = hash;
+        }
+      );
+    }
+  });
+});
+
+// Will be something along these lines
+// you need to check if people clicked on the contact link from another page
+// you can't do onclick and then call the function scrollToElement(), because the JS will run before you're in that page
+// good challenge :)
+function scrollToElement() {
+  const element = document.querySelector("#book-table");
+  if (!element) return;
+  element.scrollIntoView();
+}
+
+// scrollToElement();
